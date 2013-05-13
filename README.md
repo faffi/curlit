@@ -2,10 +2,11 @@ curlit
 ======
 Burp Python plugin to turn requests into curl commands.
 
-Example:
-`curl -isk -X "GET" \
--b "PHPSESSID=uknmkohe8kpqgcod2s4oc6soe2"
-"http://www.example.com:80/category.php?id=8"`
+Examples:
+
+	curl -isk -X "GET" \
+	-b "PHPSESSID=uknmkohe8kpqgcod2s4oc6soe2"
+	"http://www.example.com:80/category.php?id=8"
 
 Login POST to PayPal
 `curl -isk -H "Content-Type: application/x-www-form-urlencoded" \
