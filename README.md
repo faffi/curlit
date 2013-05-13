@@ -9,6 +9,7 @@ Examples:
 	"http://www.example.com:80/category.php?id=8"
 
 Login POST to PayPal
+
 	curl -isk -H "Content-Type: application/x-www-form-urlencoded" \
 	-d "login_email=test%40test.com&login_password=test&submit.x=Log+In&browser_name=Firefox&browser_version=20&browser_version_full=20.0&operating_system=Mac&bp_mid=v%3D1%3Ba1%3Dna%7Ea2%3Dna%7Ea3%3Dna%7Ea4%3DMozilla%7Ea5%3DNetscape%7Ea6%3D5.0+%28Macintosh%29%7Ea7%3Dna%7Ea8%3Dna%7Ea9%3Dtrue%7Ea10%3Dna%7Ea11%3Dtrue%7Ea12%3DMacIntel%7Ea13%3Dna%7Ea14%3DMozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10.7%3B+rv%3A20.0%29+Gecko%2F20100101+Firefox%2F20.0%7Ea15%3Dtrue%7Ea16%3Dna%7Ea17%3Dna%7Ea18%3Dwww.paypal.com%7Ea19%3Dna%7Ea20%3Dna%7Ea21%3Dna%7Ea22%3Dna%7Ea23%3D2560%7Ea24%3D1440%7Ea25%3D24%7Ea26%3D1358%7Ea27%3Dna%7Ea28%3Dna%7Ea29%3Dna%7Ea30%3Dna%7Ea31%3Dna%7Ea32%3Dna%7Ea33%3Dna%7Ea34%3Dna%7Ea35%3Dna%7Ea36%3Dna%7Ea37%3Dna%7Ea38%3Dna%7Ea39%3Dna%7Ea40%3Dna%7Ea41%3Dna%7Ea42%3Dna%7E&bp_ks1=v%3D1%3Bl%3D4%3BDi0%3A1526Di1%3A80Ui0%3A39Ui1%3A16Di2%3A112Ui2%3A75Di3%3A84Ui3%3A66&bp_ks2=&bp_ks3=" \
 	-X "POST" \
