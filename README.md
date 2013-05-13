@@ -2,6 +2,10 @@ curlit
 ======
 Burp Python plugin to turn requests into curl commands.
 
+Requires Jython 2.7
+
+Should handle JSON/XML fine as well as other HTTP verbs.
+
 Examples:
 
 	curl -isk -X "GET" \
