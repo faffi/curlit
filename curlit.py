@@ -55,7 +55,7 @@ class BurpExtender(IBurpExtender, IContextMenuFactory, ActionListener):
 		self.OPTS['-b'] = '; '.join([('%s=%s' % (c.getName(), c.getValue())) for c in cookies])
 
 		#Add all the headers to the payload
-		for k,v in headers.iteritems(): payload += '-H "%s: %s" ' % (k, v)
+		for k,v in headers.iteritems(): payload += '-H "%s: %s" \\\n' % (k, v)
 
 		#Invoke handlers to handle content type
 		#print('content type: ' + str(iRequestInfo.getContentType()))
@@ -66,7 +66,7 @@ class BurpExtender(IBurpExtender, IContextMenuFactory, ActionListener):
 			self.fMap[reqType](iRequestInfo)
 
 		#Add all the OPTS to the payload
-		for k,v, in self.OPTS.iteritems(): payload += ('%s "%s" ' % (k, v))
+		for k,v, in self.OPTS.iteritems(): payload += ('%s "%s" \\\n' % (k, v))
 
 		#Append URL to end of payload
 		payload += '"%s"' % iRequestInfo.getUrl().toString()
@@ -87,11 +87,10 @@ class BurpExtender(IBurpExtender, IContextMenuFactory, ActionListener):
 		#Ghetto format by loading string then dumping
 		#THIS SHOULD WORK BUT JYTHON DOESNT HAVE THE DAMN JSON MODULE
 		self.OPTS['-d'] = json.dumps(json.loads(self.body))
-		pass
 
 	def handleNone(self, requestInfo):
-		self.OPTS['-d'] = self.body
-		pass
+		if len(self.body) > 0:
+			self.OPTS['-d'] = self.body
 
 	def handleMultiPart():
 		pass
@@ -100,7 +99,6 @@ class BurpExtender(IBurpExtender, IContextMenuFactory, ActionListener):
 		pass
 
 	def handleURLEncoded(self, requestInfo):
-		print(p for p in requestInfo.getParameters() if p.getType() == IParameter.PARAM_BODY)
 		self.OPTS['-d'] = '&'.join( [('%s=%s' % (p.getName(), p.getValue())) for p in requestInfo.getParameters() if p.getType() == IParameter.PARAM_BODY])
 
 	def registerExtenderCallbacks(self, callbacks):
