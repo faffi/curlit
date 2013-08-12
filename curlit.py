@@ -76,6 +76,8 @@ class BurpExtender(IBurpExtender, IContextMenuFactory, ActionListener):
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s,s) #put string on clipboard
 		print(payload) #print string
 
+		self.OPTS = {}
+
 	def actionPerformed(self, actionEvent):
 		self._build()
 
