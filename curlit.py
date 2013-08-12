@@ -55,7 +55,7 @@ class BurpExtender(IBurpExtender, IContextMenuFactory, ActionListener):
 		self.OPTS['-b'] = '; '.join([('%s=%s' % (c.getName(), c.getValue())) for c in cookies])
 
 		#Add all the headers to the payload
-		for k,v in headers.iteritems(): payload += '-H "%s: %s" \\\n' % (k, v)
+		for k,v in headers.iteritems(): payload += '-H \'%s: %s\' \\\n' % (k, v)
 
 		#Invoke handlers to handle content type
 		#print('content type: ' + str(iRequestInfo.getContentType()))
@@ -66,7 +66,7 @@ class BurpExtender(IBurpExtender, IContextMenuFactory, ActionListener):
 			self.fMap[reqType](iRequestInfo)
 
 		#Add all the OPTS to the payload
-		for k,v, in self.OPTS.iteritems(): payload += ('%s "%s" \\\n' % (k, v))
+		for k,v, in self.OPTS.iteritems(): payload += ('%s \'%s\' \\\n' % (k, v))
 
 		#Append URL to end of payload
 		payload += '"%s"' % iRequestInfo.getUrl().toString()
