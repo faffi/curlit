@@ -12,6 +12,7 @@ from java.awt import Toolkit
 from java.awt.event import ActionListener
 from java.awt.event import ActionEvent
 from java.awt.event import KeyEvent
+
 class BurpExtender(IBurpExtender, IContextMenuFactory, ActionListener):
 
 	#List of BLACKLISTed HTTP headers, feel free to edit :)
