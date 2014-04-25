@@ -1,7 +1,8 @@
 curlit
 ======
 
-Update: Plugin is now obsolete, PortSwigger implemented a copy-as-curl command, see the forum post here:
+## Update:
+lugin is now obsolete, PortSwigger implemented a copy-as-curl command, see the forum post here:
 	http://forum.portswigger.net/thread/564/copy-curl-command
 
 Burp Python plugin to turn requests into curl commands.
